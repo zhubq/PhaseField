@@ -1,0 +1,23 @@
+This is a C++ code written with Message Passing Interface (MPI) API.
+Its function is to implement phase field simulation mainly for Austenite/Ferrite phase transformations.
+The employed phase field model is developed by Ingo Steinbach et al. The details of the model can be found in " Eiken et al., Applied Physics (E), 2004".
+The model basically consists of a system of partial differential equations (PDEs). The PDEs are basically diffusion-advection types.
+Explict finite difference scheme is used to solve the equations numerically. On each grid point,about 5-10 PDE are solved,thus the computation is intensive.
+The boundary conditions are periodic in all directions.
+
+Two input files are required: 1) log_file1.txt 2) thermo_data.txt.
+The "log_file1.txt" file is the main file consisting of the simulation parameters, e.g. domain size. The main file also indicates the name of the thermodyanamics file, i.e. thermo_data.txt in the example (see in the example subdirectory).
+The code uses Blitz++ package for multidimensional arrays. Therefore, pre-installation of Blitz++ is required. It can be downloaded from www.sourceforge.net.
+The code uses 2D/3D Cartensian Topology to decompose the 2D/3D computational domain into subdomains. Since 5-stencil scheme is used, one layer of halo cells is required to be exchanged between neighboring processes.
+Non-blocking inter-process communications are used for halo-data exchange.
+Two types of files are output. One is the statistical information on volume fractions of phases at a given time (the time interval for output is set in the main file); The others are microstructure files (*.vti).
+The parallel vti files can be visuallized by the open-source package Paraview.
+Please make necessary change of the makefile:
+1) the compiler name (mpic++ by default);
+2) the Include path for Blitz++ package, e.g. /usr/lib/blitz-10.0.1;
+3) the compilation options, for either debug or release version  (see details in the makefile).
+
+The code can also be compiled to be a MPI/OpenMP hybrid program by enabling the -fopenmp option in the makefile. 
+
+
+Anyone can use the code for research or further development. For any problem, please contact zhubenqiang@gmail.com.

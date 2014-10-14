@@ -1,0 +1,78 @@
+OUTPUT NAME?
+rex140k1_para1cs
+GRuID SIZE?
+ (FOR 2D CALCULATIONS:IZ=1;FOR 1D CALCULATIONS:IY=1,IZ=1)
+ [IX IY IZ]?
+       140       140       140
+ CELL DIMENSION (MICRON):
+ 0.15
+ INTERFACE THICKNESS (IN CELLS):
+5.00
+ PHASE MINIMUM:
+0.100E-004
+ NUMBER OF DEFORMED GRAINS:250,61
+     10 10 0
+VOLUME FRACTION OF SECOND PHASE (<1):
+0.15 0.85 0.
+solute concentration in matrix?
+0.0063 0.12 0.1
+ temperature [K]?2.1 -0.125
+2
+0 973
+20 973
+ rolling reduction(<1):
+0.
+ Number of iterations for initialisation:
+         0
+ the time step to write the result into file:
+1.
+Microstructure output?
+1
+ input an integer to initialize the random number generator for initial structure:
+           37
+radius of nuclei(micron)?
+0.5
+Stored energy file?
+store.txt
+REX Nuclei number?60
+60
+[1]critical energy(Mpa)?
+1.5
+austenite nucleation temperature [K] and nuclei Number IN PEARLITE and ferrite? 1003,90,1043,150 nple
+1003. 80 1033. 160
+ ferrite-ferrite interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?1.35e29,332826
+   24e29 360000
+  ferrite-austenite interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?10.0e27,370000
+  100.e16 140000
+  ferrite-carbide interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?
+  0.0e26 332826
+  austenite-austenite interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?
+   0.e28 360000
+  austenite-carbide interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?1.2e27,332826
+   0.0e28 360000
+  carbide-carbide interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?
+   0.0e-33 16000000
+  ferrite-ferrite interface energy[J/um^2]?
+  0.76e-12
+  ferrite-austenite interface energy[J/um^2]?
+  0.4e-12
+  ferrite-carbide interface energy[J/um^2]?
+  0.7e-12
+  austenite-austenite interface energy[J/um^2]?
+  0.76e-12
+  austenite-carbide interface energy[J/um^2]?
+  0.94e-12
+ carbide-carbide interface energy[J/um^2]?
+  0.3e-12
+  ferrite diffusivity D0 [um^2/s], Activation energy Q[J]?
+  0.5e8 122500
+  austenite diffusivity D0,Activation energy Q?
+0.15e8 142000
+  pearlite diffusivity D0,Activation energy Q?
+0.e8 142000
+thermodynamic file?
+thermo_data.txt
+ Solute Drag Model Parameters[F=Fm*2/(v/v_m+v_m/v)]Fm and v_m=v_m0*exp(-Q_sd/RT):[Fm(j/um^3),v_m0(um/s),Q_sd(J/mol)]0.5-5 compare : job826: 2e11vs2e10
+5000.,1.e10,247650
+15.e-12,0.1e7,216000 16.e-12,0.1e6,132000
+
