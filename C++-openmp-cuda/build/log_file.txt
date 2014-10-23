@@ -1,0 +1,67 @@
+OUTPUT NAME?
+rex140k1_para1cs
+GRuID SIZE?
+ (FOR 2D CALCULATIONS:IZ=1;FOR 1D CALCULATIONS:IY=1,IZ=1)
+ [IX IY IZ]?
+        500       500       1
+ CELL DIMENSION (MICRON):
+ 0.15
+ INTERFACE THICKNESS (IN CELLS):
+5.00
+ PHASE MINIMUM:
+0.100E-004
+ NUMBER OF DEFORMED GRAINS:250,61
+     8 1 0
+VOLUME FRACTION OF SECOND PHASE (<1):
+0.15 0.85 0.
+solute concentration in matrix?
+0.0063 0.12 0.1
+ temperature [K]?2.1 -0.125
+2
+0 1003
+4.6 1003
+ rolling reduction(<1):
+0.
+ Number of iterations for initialisation:
+         10
+ the time step to write the result into file:
+0.5
+Microstructure output?
+1
+Ferrite nuclei Number IN  ferrite? 1003,90,1043,150 nple
+ 1
+ ferrite-ferrite interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?1.35e29,332826
+   24e29 360000
+  ferrite-austenite interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?10.0e27,370000
+  200.e16 140000
+  ferrite-carbide interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?
+  0.0e26 332826
+  austenite-austenite interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?
+   0.e28 360000
+  austenite-carbide interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?1.2e27,332826
+   0.0e28 360000
+  carbide-carbide interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?
+   0.0e-33 16000000
+  ferrite-ferrite interface energy[J/um^2]?
+  0.76e-12
+  ferrite-austenite interface energy[J/um^2]?
+  0.4e-12
+  ferrite-carbide interface energy[J/um^2]?
+  0.7e-12
+  austenite-austenite interface energy[J/um^2]?
+  0.76e-12
+  austenite-carbide interface energy[J/um^2]?
+  0.94e-12
+ carbide-carbide interface energy[J/um^2]?
+  0.3e-12
+  ferrite diffusivity D0 [um^2/s], Activation energy Q[J]?
+  0.1e8 122500
+  austenite diffusivity D0,Activation energy Q?
+0.15e8 142000
+  pearlite diffusivity D0,Activation energy Q?
+0.e8 142000
+thermodynamic file?
+thermo_data.txt
+Use GPU_Computing if possible?
+1
+
