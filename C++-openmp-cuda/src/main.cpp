@@ -33,7 +33,7 @@ int main(int argc,char**argv) {
         PFM.Update(false);
         PFM.Write_data();
     }
-
+    void GPU_Cleanup();
     cout<<"SIMULATION IS FINISHED.\n"<<endl;
     clock_t end_time=clock();
     double wend_time=omp_get_wtime();
