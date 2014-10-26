@@ -38,7 +38,7 @@ LIBS = -lblitz -lm
 ifeq ($(NVCC_TEST),nvcc)
         NVCC=nvcc
         LIBS+= -lcudart
-        GPUFLAGS= -arch=sm_20
+        GPUFLAGS= -arch=sm_20 -x cu
 else
         NVCC= g++
         GPUFLAGS=

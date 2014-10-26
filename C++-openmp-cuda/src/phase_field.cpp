@@ -300,7 +300,7 @@ void phase_field::Update(bool flag_diff) {
     //return;
 //     clock_t s3=clock();
 //     double ss3=omp_get_wtime();
-//     cout<<"diff "<<ss3-ss2<<endl;
+//     cout<<"diff "<<ss3-ss2<<num_iter_diff_per_pfm<<endl;
     return;
 }
 

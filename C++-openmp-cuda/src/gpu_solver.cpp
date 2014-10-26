@@ -5,13 +5,15 @@
 #include "real.h"
 using namespace std;
 
-#ifdef __CUDACC__
+#ifdef __NVCC__
+
 #include "cuda.h"
 #include "cuda_runtime.h"
 
 static dim3 block,grid;//The GPU kernel configuration, e.g. kernel<<<grid,block>>>().
 static real *dvalue_phase,*dtotal_conc,*dvalue_conc;//Device pointers for phase-fraction, solute concentration and solute phase-concentration.
 static int size_domain,size_phase;//The numbers of elements in total_conc array and phase-fration array;
+static int dimensions;
 __constant__ real dpara_partition_k[max_num_phase*max_num_phase],dpara_partition_c[max_num_phase*max_num_phase];//thermodynamic partitioning coefficients
 __constant__ real ddiffusivity[max_num_phase];// solute diffusivity
 
@@ -87,6 +89,10 @@ int GPU_Init(const int x,const int y, const int z) {
     grid.z=z/block.z;
 
     if(z%block.z>0)grid.z++;
+    
+    if(z>1)dimensions=3;
+    if(z==1) dimensions=2;
+    
 
     cout<<"GPU kernel Config: Grid<"<<grid.x<<","<<grid.y<<","<<grid.z<<"> Block<"<<block.x<<","<<block.y<<","<<block.z<<">"<<endl;
     return 1;
@@ -129,7 +135,7 @@ __global__ void GPU_Partitioning(const real  * __restrict val_phase,const real* 
     int k=(col+x*(row+y*slice));
     real t1,t2;
 
-    if(col<=x&&row<=y&&slice<=z) { //Threads out of the domain will not implement the following code.
+    if(col<x&&row<y&&slice<z) { //Threads out of the domain will not implement the following code.
 #pragma unroll
         for(int i=0; i<max_num_phase; i++) {
             t1=0.;
@@ -166,7 +172,7 @@ __global__ void Diff3D(const real  * __restrict val_phase,real*total_conc,const 
     real del_conc=0.;
     int loc;
 
-    if(col<=x&&row<=y&&slice<=z) { //Threads out of the domain will not implement the following code.
+    if(col<x&&row<y&&slice<z) { //Threads out of the domain will not implement the following code.
 #pragma unroll
         for(int ii=0; ii<6; ii++) { // Calculate the flux on each side
             loc= neighbors[ii]*max_num_phase;
@@ -198,7 +204,7 @@ __global__ void Diff3D(const real  * __restrict val_phase,real*total_conc,const 
 void GPU_Diffusion_solver(real*hdiffusivity, real*hpartition_k,real*hpartition_c,real* hvalue_phase,real*htotal_conc,int x,int y, int z,real  dt, real dx) {
     GPU_Memcpy(hdiffusivity, hpartition_k,hpartition_c,hvalue_phase,htotal_conc);//Copy to GPU
     real max_diff=*max_element(hdiffusivity,hdiffusivity+max_num_phase);//Find out the maximum diffusivity
-    real del_t=dx*dx/max_diff*0.1f;// calculate the timestep for diffusion equations, ensuring stability and convergency.
+    real del_t=dx*dx/max_diff/dimensions*0.2f;// calculate the timestep for diffusion equations, ensuring stability and convergency.
     int num_loop=ceil(dt/del_t);// calculate the number of iterations to solve diffusion equation for a time interval of dt.
     real dt_dxdx=dt/num_loop/(dx*dx);// is dt/(dx*dx).
     cudaFuncSetCacheConfig(Diff3D,cudaFuncCachePreferL1);

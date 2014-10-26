@@ -238,8 +238,11 @@ void phase_field::Iso_growth(const int i,const int j,const int k) {
 	  value_grain2(ii,i,j,k)=0.;
 	}
     }
-
-    value_grain2(Range::all(),i,j,k)*=1./sum_del_value;
-    value_phase(Range::all(),i,j,k)*=1./sum_del_value;
+    
+    for (int ii=1;ii<=max_num_coexist;ii++)
+        value_grain2(ii,i,j,k)*=1./sum_del_value;
+   
+    for(int ii=1;ii<=max_num_phase;ii++)
+        value_phase(ii,i,j,k)*=1./sum_del_value;
     return;
 }
