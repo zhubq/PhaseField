@@ -1,0 +1,89 @@
+FOLDER NAME FOR OUTPUTFILES?
+rex140k1_para1cs
+DOMAIN SIZE?
+ (FOR 2D CALCULATIONS:IZ=1;FOR 1D CALCULATIONS:IY=1,IZ=1)
+ IX?
+        200
+ IY?
+       200
+ IZ?
+        1
+ CELL DIMENSION (MICRON):
+ 0.5
+ INTERFACE THICKNESS (NUMBER IN CELLS):
+5.00
+ PHASE MINIMUM FOR CUTOFF:
+0.100E-004
+ NUMBER OF DEFORMED FERRITE GRAINS AND PEARLITE GRAINS:
+     445,110
+VOLUME FRACTION OF SECOND PHASE (<1):
+0.150
+solute concentration in matrix?
+0.012
+solute concentration in stoichiometric phase?
+0.63
+Tesselation (0)or read from file (1) [micro.vti]
+0
+ Simulation time(s):138/10 250 121.6,184
+240.
+ Start temperature [C]?
+600
+ heating rate [K/s]?2.1 -0.125
+1
+240.,840,185,770,195,440
+ rolling reduction(<1):
+0.55
+ Number of iterations for initialisation:
+         10
+ the time step to write the result into file:
+5.
+Microstructure output?
+.false.
+ input an integer to initialize the random number generator for initial structure:
+           37
+ input an integer to initialize the random number generator for nucleation seeding:
+      76
+radius of nuclei(micron)?
+0.4
+Stored energy file?
+store.txt
+Recrystallization Nucleation Mode:[0]homogeneous nucleation;[1]critical energy?
+1
+REX Nuclei number?60
+170
+[1]critical energy(Mpa)?
+0
+austenite nucleation temperature [K] and nuclei Number IN PEARLITE and ferrite? 1003,90,1043,150 nple
+1003,240,1003,40
+  ferrite-austenite interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?10.0e27,370000
+  500.e16,140000
+  ferrite-carbide interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?
+  0.0e26,332826
+  austenite-carbide interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?1.2e27,332826
+   2.4e28,360000
+ ferrite-ferrite interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?1.35e29,332826
+   5.4e28,335000
+  austenite-austenite interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?
+   2.e20,185000
+  carbide-carbide interface mobility: prefactor mu0[um^4/J.s] and activation energy Q[J]?
+   0.0e-33,16000000
+  ferrite-austenite interface energy[J/um^2]?
+  0.4e-12
+  ferrite-carbide interface energy[J/um^2]?
+  0.7e-12
+  austenite-carbide interface energy[J/um^2]?
+  0.94e-12
+  ferrite-ferrite interface energy[J/um^2]?
+  0.76e-12
+  austenite-austenite interface energy[J/um^2]?
+  0.76e-12
+ carbide-carbide interface energy[J/um^2]?
+  0.3e-12
+  ferrite diffusivity D0 [um^2/s], Activation energy Q[J]?
+  1.1e8,122500
+  austenite diffusivity D0,Activation energy Q?
+0.3e8,142000
+ Solute Drag Model Parameters[F=Fm*2/(v/v_m+v_m/v)]Fm and v_m=v_m0*exp(-Q_sd/RT):[Fm(j/um^3),v_m0(um/s),Q_sd(J/mol)]0.5-5 compare : job826: 2e11vs2e10
+10000.,1.0e11,247650
+15.e-12,0.1e7,216000 16.e-12,0.1e6,132000
+

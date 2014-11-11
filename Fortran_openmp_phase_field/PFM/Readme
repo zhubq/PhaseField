@@ -1,0 +1,29 @@
+This is a FORTRAN code implementing phase field simulation of intercritical annealing.
+The program can be run on a multi-core shared-memory system including cc-NUMA systems.
+
+File structure:
+\PFM
+   |
+   |_\bin    /* binary executable 
+   |
+   |_\obj    /* object and module files generated during compilation
+   |
+   |_\src    /* source code *.f90 
+   |
+   |_\example /* example input files
+   |
+   |_\doc     /* introduction of the phase field model and numerical algorithms
+   |
+   |_makefile 
+   |
+   |_Readme
+   
+Compilation:
+ the compiler by default is intel fortran (ifort). You may use other compilers, e.g. gfortran. But you need to modify the compilation optiongs in the makefile.
+
+Run program:
+ there are two input files as shown in \example. One is the main input file and the other is the stored energy distribution file.
+ The path and name of the stored energy distribution file should be consistent with the path and name indicated in the main input file.
+ To run the program PFM, just type ./PFM name_of_main_input_file
+ 
+Should you have any question or problem, please contact: zhubenqiang@gmail.com.
