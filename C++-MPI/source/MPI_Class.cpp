@@ -160,8 +160,11 @@ void mpi_configuration::Configure_cart(const TinyVector<int,3> & domain)
             subdomain_info(myrank)(i*2)=(quot+1)*mod+quot*(cart_coord[i]-mod);
             subdomain_info(myrank)(i*2+1)=subdomain_info(myrank)(i*2)+quot+1;
         }
-        
-        MPI_Allgather(&subdomain_info(myrank),6,MPI_INT,&subdomain_info(0),6,MPI_INT,cart_comm);
+        int sub_info[6];
+        for(int i=0;i<6;i++)
+            sub_info[i]=subdomain_info(myrank)(i);
+
+        MPI_Allgather(sub_info,6,MPI_INT,&subdomain_info(0),6,MPI_INT,cart_comm);
 
     }
     return ;
